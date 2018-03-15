@@ -1,2 +1,2 @@
-- import_tasks: unzipwildfly.yml
-- import_tasks: chownwildfly.yml
+- import_tasks: unzipjboss.yml
+- import_tasks: chownjboss.yml

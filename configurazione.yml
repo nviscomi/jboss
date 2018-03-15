@@ -6,7 +6,6 @@
     - ansible-jboss
     - master
     - driver
-    - driverdomain
 - hosts: slave
   become: true
   roles:
