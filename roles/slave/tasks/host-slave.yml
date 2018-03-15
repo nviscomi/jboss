@@ -1,11 +1,11 @@
 - name: Configurazione host-slave.xml
   template:
     src: host-slave.file
-    dest: /opt/jboss-as-7.1.1.Final/domain/configuration/host-slave.xml
+    dest: /opt/jboss-eap-7.1/domain/configuration/host-slave.xml
     owner: jboss
     group: jboss
 - replace:
-    path: /opt/jboss-as-7.1.1.Final/domain/configuration/host-slave.xml
+    path: /opt/jboss-eap-7.1/domain/configuration/host-slave.xml
     regexp: "masterip"
     replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
   with_items:

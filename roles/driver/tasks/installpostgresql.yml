@@ -1,2 +1,2 @@
 - name: Installazione driver postgresql
-  command: /opt/jboss-as-7.1.1.Final/bin/jboss-cli.sh --command="module add --name=postgresql-42.2.1.jdbc --resources=/opt/jboss-as-7.1.1.Final/postgresql-42.2.1.jar --dependencies=javax.api,javax.transaction.api"
+  command: /opt/jboss-eap-7.1/bin/jboss-cli.sh --command="module add --name=postgresql-42.2.1.jdbc --resources=/opt/jboss-eap-7.1/postgresql-42.2.1.jar --dependencies=javax.api,javax.transaction.api"

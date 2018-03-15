@@ -6,7 +6,7 @@
         <security-realms>
             <security-realm name="ManagementRealm">
                 <server-identities>
-                     SECRET
+                     {{ hostvars[ master_node ]['wildfly_secret_set'] }}
                 </server-identities>
 
                 <authentication>

@@ -1,5 +1,5 @@
 - name: Unzip archivio jboss
   unarchive:
-    src: /opt/jboss-as-7.1.1.Final.tar.gz
+    src: /opt/jboss-eap-7.1.tar.gz
     dest: /opt
     remote_src: yes

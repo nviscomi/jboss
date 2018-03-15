@@ -4,4 +4,4 @@
     dest: /opt
 
 - name: Spostare file postgresql-42.2.1.jar nella cartella di wildfly
-  command: mv /opt/postgresql-42.2.1.jar /opt/jboss-as-7.1.1.Final/
+  command: mv /opt/postgresql-42.2.1.jar /opt/jboss-eap-7.1/
