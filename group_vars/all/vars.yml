@@ -1,0 +1,6 @@
+#E' possibile modificare admin e almaviva00 con il nome utente e
+#la password da voi scelte in modo tale che verrà creato secondo le specifiche date.
+#Il master_node è il nome della macchina master sul quale viene effettuato il comando ./add-user.sh
+ACCOUNT: admin
+PASSWORD: almaviva00
+master_node: master

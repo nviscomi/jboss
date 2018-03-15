@@ -1,0 +1,13 @@
+[Unit]
+Description=JBoss EAP Systemctl script
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/jboss-eap-7.1/bin/init.d/jboss-eap-rhel.sh start
+ExecStop=/opt/jboss-eap-7.1/bin/init.d/jboss-eap-rhel.sh stop
+ExecReload=/opt/jboss-eap-7.1/bin/init.d/jboss-eap-rhel.sh restart
+#PIDFile=/var/run/jboss-eap/jboss-eap.pid
+
+[Install]
+WantedBy=multi-user.target

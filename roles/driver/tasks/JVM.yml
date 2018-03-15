@@ -1,0 +1,6 @@
+- name: Download pacchetto ojdbc8.jar
+  get_url:
+    url:  http://www.mediafire.com/file/u82r52qddunhgmd/ojdbc8.jar
+    dest: /opt
+- name: Spostare file obdbc8.jar nella cartella di wildfly
+  command: mv /opt/ojdbc8.jar /opt/jboss-as-7.1.1.Final/

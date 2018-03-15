@@ -1,0 +1,5 @@
+[master]
+master
+
+[slave]
+ansible2

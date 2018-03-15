@@ -1,0 +1,66 @@
+- name: Configurazione host-master.xml
+  template:
+    src: host-master.file
+    dest: /opt/jboss-as-7.1.1.Final/domain/configuration/host-master.xml
+    owner: jboss
+    group: jboss
+- replace:
+    path: /opt/jboss-as-7.1.1.Final/domain/configuration/host-master.xml
+    regexp: "IPMASTER"
+    replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
+  with_items:
+    - "{{ groups['master'] }}"
+#Host config
+- name: Configurazione host.xml
+  template:
+    src: host.file
+    dest: /opt/jboss-as-7.1.1.Final/domain/configuration/host.xml
+    owner: jboss
+    group: jboss
+- replace:
+    path: /opt/jboss-as-7.1.1.Final/domain/configuration/host.xml
+    regexp: "IPMASTER"
+    replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
+  with_items:
+    - "{{ groups['master'] }}"
+#secret.sh
+- name: Creazione sh secret
+  template:
+    src: secret.file
+    dest: /opt/jboss-as-7.1.1.Final/bin/secret.sh
+    mode: 0755
+    owner: jboss
+    group: jboss
+#./add-user.sh utente admin
+- name: Avvio add-user.sh per utente admin
+  command: /opt/jboss-as-7.1.1.Final/bin/add-user.sh -u {{ ACCOUNT }} -p {{ PASSWORD }} -r ManagementRealm
+#./add-user.sh
+- name: Avvio add-user.sh per utente normale
+  command: /opt/jboss-as-7.1.1.Final/bin/secret.sh
+  register: jboss_secret
+
+- set_fact:
+    jboss_secret_set: "{{jboss_secret.stdout}}"
+#widlfly.conf
+- name: jboss config
+  template:
+    src: jboss-master.conf
+    dest: /etc/default/jboss.conf
+    owner: jboss
+    group: jboss
+#jboss.service
+- name: jboss service
+  template:
+    src: jboss.service
+    dest: /etc/systemd/system/jboss.service
+    owner: jboss
+    group: jboss
+#file initd versione 10
+- name: init.d
+  template:
+    src: init.d
+    dest: /opt/jboss-as-7.1.1.Final/bin/init.d/jboss-init-redhat.sh
+    owner: jboss
+    group: jboss
+- name: reload daemon systemctl
+  systemd: daemon_reload=yes

@@ -1,0 +1,11 @@
+- name: Pacchetti utili
+  yum: state=present name="{{ item }}"
+  with_items:
+    - httpd
+    - wget
+    - bash-completion
+    - telnet
+    - lvm2
+    - tree
+    - bind-utils
+    - unzip

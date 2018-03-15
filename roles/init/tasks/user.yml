@@ -1,0 +1,4 @@
+- user:
+    name: jboss
+    shell: /bin/bash
+    append: yes

@@ -1,0 +1,7 @@
+- name: Download pacchetto postgresql 42.2.1
+  get_url:
+    url:  https://jdbc.postgresql.org/download/postgresql-42.2.1.jar
+    dest: /opt
+
+- name: Spostare file postgresql-42.2.1.jar nella cartella di wildfly
+  command: mv /opt/postgresql-42.2.1.jar /opt/jboss-as-7.1.1.Final/

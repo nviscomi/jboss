@@ -1,0 +1,17 @@
+- hosts: master
+  become: true
+  roles:
+    - oracle-java
+    - init
+    - ansible-jboss
+    - master
+    - driver
+    - driverdomain
+- hosts: slave
+  become: true
+  roles:
+    - oracle-java
+    - init
+    - ansible-jboss
+    - slave
+    - driver

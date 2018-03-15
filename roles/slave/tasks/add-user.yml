@@ -1,0 +1,7 @@
+- name: Avvio add-user.sh
+  hosts: master
+  command: /opt/jboss-as-7.1.1.Final/bin/secret.sh
+  register: jboss_secret
+
+- set_fact:
+    jboss_secret_set: "{{jboss_secret.stdout_lines}}"

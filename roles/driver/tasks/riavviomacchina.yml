@@ -1,0 +1,16 @@
+- name: Reboot
+  tasks:
+    - name: Reboot
+      shell: sleep 2 && shutdown -r now
+      ignore_errors: true
+      async: 1
+      poll: 0
+- name: Wait for server to restart
+  local_action:
+    module: wait_for
+      host={{ inventory_hostname }}
+      port=22
+      delay=10
+      timeout=300
+- name: Ping
+  ping:

@@ -1,0 +1,8 @@
+#Installazione JVM Oracle
+- import_tasks: JVM.yml
+- import_tasks: installoracle.yml
+#Installazione postgresql
+- import_tasks: postgresql.yml
+- import_tasks: installpostgresql.yml
+#Riavvio macchina
+#- import_tasks: riavviomacchina.yml
