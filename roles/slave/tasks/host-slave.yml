@@ -14,14 +14,14 @@
 - name: jboss.conf
   template:
     src: jboss-slave.conf
-    dest: /etc/default/jboss.conf
+    dest: /etc/default/jboss-eap
     owner: jboss
     group: jboss
 #jboss.service
 - name: jboss service
   template:
     src: jboss.service
-    dest: /etc/systemd/system/jboss.service
+    dest: /etc/systemd/system/jboss-as-domain.service
     owner: jboss
     group: jboss
 - name: reload daemon systemctl

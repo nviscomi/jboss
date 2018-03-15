@@ -23,36 +23,18 @@
     replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
   with_items:
     - "{{ groups['master'] }}"
-#secret.sh
-- name: Creazione sh secret
-  template:
-    src: secret.file
-    dest: /opt/jboss-as-7.1.1.Final/bin/secret.sh
-    mode: 0755
-    owner: jboss
-    group: jboss
-#./add-user.sh utente admin
-- name: Avvio add-user.sh per utente admin
-  command: /opt/jboss-as-7.1.1.Final/bin/add-user.sh -u {{ ACCOUNT }} -p {{ PASSWORD }} -r ManagementRealm
-#./add-user.sh
-- name: Avvio add-user.sh per utente normale
-  command: /opt/jboss-as-7.1.1.Final/bin/secret.sh
-  register: jboss_secret
-
-- set_fact:
-    jboss_secret_set: "{{jboss_secret.stdout}}"
 #widlfly.conf
 - name: jboss config
   template:
     src: jboss-master.conf
-    dest: /etc/default/jboss.conf
+    dest: /etc/default/jboss-eap
     owner: jboss
     group: jboss
 #jboss.service
 - name: jboss service
   template:
     src: jboss.service
-    dest: /etc/systemd/system/jboss.service
+    dest: /etc/systemd/system/jboss-as-domain.service
     owner: jboss
     group: jboss
 - name: reload daemon systemctl
