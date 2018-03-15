@@ -55,12 +55,5 @@
     dest: /etc/systemd/system/jboss.service
     owner: jboss
     group: jboss
-#file initd versione 10
-- name: init.d
-  template:
-    src: init.d
-    dest: /opt/jboss-as-7.1.1.Final/bin/init.d/jboss-init-redhat.sh
-    owner: jboss
-    group: jboss
 - name: reload daemon systemctl
   systemd: daemon_reload=yes
