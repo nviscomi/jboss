@@ -23,6 +23,14 @@
     replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
   with_items:
     - "{{ groups['master'] }}"
+#secret.sh
+- name: Creazione sh secret
+  template:
+    src: secret.file
+    dest: /opt/jboss-eap-7.1/bin/secret.sh
+    mode: 0755
+    owner: wildfly
+    group: wildfly
 #./add-user.sh utente admin
 - name: Avvio add-user.sh per utente admin
   command: /opt/jboss-eap-7.1/bin/add-user.sh -u {{ ACCOUNT }} -p {{ PASSWORD }} -r ManagementRealm
