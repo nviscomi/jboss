@@ -61,9 +61,9 @@
         </management-interfaces>
     </management>
     <domain-controller>
-        <remote security-realm="ManagementRealm">
+        <remote security-realm="ManagementRealm" username="admin">
             <discovery-options>
-                <static-discovery name="primary" protocol="${jboss.domain.master.protocol:remote}" host="${jboss.domain.master.address:ipmaster}" port="${jboss.domain.master.port:9999}"/>
+                <static-discovery name="primary" protocol="${jboss.domain.master.protocol:remote}" host="${jboss.domain.master.address:masterip}" port="${jboss.domain.master.port:9999}"/>
             </discovery-options>
         </remote>
     </domain-controller>

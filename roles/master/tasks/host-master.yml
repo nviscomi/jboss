@@ -45,7 +45,7 @@
 - name: jboss config
   template:
     src: jboss-master.conf
-    dest: /etc/default/jboss-eap
+    dest: /etc/default/jboss-eap.conf
     owner: jboss
     group: jboss
 #jboss.service
