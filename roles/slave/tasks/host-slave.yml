@@ -21,7 +21,7 @@
 - name: jboss service
   template:
     src: jboss.service
-    dest: /etc/systemd/system/jboss-as-domain.service
+    dest: /etc/systemd/system/jboss.service
     owner: jboss
     group: jboss
 - name: reload daemon systemctl
