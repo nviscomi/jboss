@@ -20,7 +20,7 @@
 #jboss.service
 - name: jboss service
   template:
-    src: jboss.service
+    src: jboss-as-domain.service
     dest: /etc/systemd/system/jboss.service
     owner: jboss
     group: jboss

@@ -6,5 +6,6 @@
 - name: Spostare file postgresql-42.2.1.jar nella cartella di jboss
   command: mv /opt/postgresql-42.2.1.jar /opt/jboss-eap-7.1/
 
-- name: Avvio jboss
-  command: systemctl start jboss.service
+- service:
+    name: jboss-as-domain.service
+    state: started
